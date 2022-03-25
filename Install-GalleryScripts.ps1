@@ -1,7 +1,23 @@
-# Usefull Scripts and modules
+# Usefull Scripts and modules from Powershellgallery
 
-# Validation of file and folder names
-Install-Script -Name Remove-InvalidFileNameChars
+$scripts = @(
+	@{
+		# Validation of file and folder names
+		Name = "Remove-InvalidFileNameChars"
+	}
+)
 
-# Conversion of Powershell 5 scripts to EXE files
-Install-Module -Name ps2exe
+$modules = @(
+	@{
+		# Conversion of Powershell 5 scripts to EXE files
+		Name = "ps2exe"
+	}
+)
+
+foreach ($script in $scripts) {
+	Install-Script @script
+}
+
+foreach ($module in $modules) {
+	Install-Module @module
+}
